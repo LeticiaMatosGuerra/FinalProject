@@ -1,7 +1,7 @@
 <?php
 
 class Recipe implements JsonSerializable {
-   private int $recipe_id;
+   private int $recipeId;
    private string $recipe_name;
    private string $prep_time;
    private string $cook_time;
@@ -19,7 +19,7 @@ class Recipe implements JsonSerializable {
 
    public function jsonSerialize() {
       return [
-         'recipe_id' => $this->recipe_id,
+         'recipeId' => $this->recipeId,
          'recipe_name' => $this->recipe_name,
          'prep_time' => $this->prep_time,
          'cook_time' => $this->cook_time,
@@ -37,21 +37,21 @@ class Recipe implements JsonSerializable {
   }
 
    /**
-    * Get the value of recipe_id
+    * Get the value of recipeId
     */ 
-   public function getRecipe_id()
+   public function getRecipeId()
    {
-      return $this->recipe_id;
+      return $this->recipeId;
    }
 
    /**
-    * Set the value of recipe_id
+    * Set the value of recipeId
     *
     * @return  self
     */ 
-   public function setRecipe_id($recipe_id)
+   public function setRecipeId($recipeId)
    {
-      $this->recipe_id = $recipe_id;
+      $this->recipeId = $recipeId;
 
       return $this;
    }
