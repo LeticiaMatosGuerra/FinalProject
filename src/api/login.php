@@ -12,7 +12,7 @@ header("Content-type: application/json; charset=utf-8");
 
 $userLogin = new stdClass;
 $userLogin->id = 1;
-$userLogin->username = "monika";
+$userLogin->username = "duygu";
 $userLogin->password = "123";
 
 $method = $_SERVER['REQUEST_METHOD'];
