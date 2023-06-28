@@ -1,19 +1,20 @@
 <template>
   <div id="app">
     <LoginForm />
-    <SignUpForm/>
+<!--     <SignUpForm/> -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import LoginForm from './components/LoginForm.vue';
-import SignUpForm from './components/SignUpForm.vue';
+import LoginForm from './components/pages/LoginForm.vue';
+/* import SignUpForm from './components/pages/SignUpForm.vue'; */
 
 export default {
   name: 'App',
   components: {
     LoginForm,
-    SignUpForm
+   /*  SignUpForm */
   }
 };
 </script>
