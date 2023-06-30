@@ -1,24 +1,17 @@
 <template>
-  <div id="app">
-   <!--  <LoginForm /> -->
-  <RegisterForm/>  
-<!--   <UserPage/> -->
-    <router-view/>
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
- /* import LoginForm from './components/pages/LoginForm.vue'; */
- import RegisterForm from './components/pages/RegisterForm.vue';
-/*  import UserPage from './components/pages/UserPage.vue'; */
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-  /*   LoginForm, */
-   RegisterForm
+    HelloWorld
   }
-};
+}
 </script>
 
 <style>
