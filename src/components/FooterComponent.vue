@@ -39,13 +39,13 @@ export default {
       flex-direction: column;
    }
 
-   section{
+   footer section{
       display: flex;
       justify-content: space-between;
       align-items: center;
    }
    
-   a{
+   footer a{
       display: flex;
       text-decoration: none;
       color: black;
@@ -53,7 +53,7 @@ export default {
 
    @media (min-width:300px) {
       footer{
-         padding: 0px 2%;
+         padding: 2vw 3%;
       }
 
       .footerNav > ul{
@@ -80,6 +80,7 @@ export default {
 
       footer > p{
          color: grey;
+         text-align: center;
       }
    }
 
@@ -137,7 +138,7 @@ export default {
    }
 
    @media (min-width: 1000px) {
-      section{
+      footer section{
          height: 10vh;
       }
 
