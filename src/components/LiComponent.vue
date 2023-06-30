@@ -30,11 +30,20 @@ export default {
    .list{
       display: flex;
       align-items: center;
-      column-gap: 3vw;
+      justify-content: space-between;
+      column-gap: 2vw;
+   }
+
+   .list:hover{
+      cursor: pointer;
    }
 
    .list i{
       display: none;
+   }
+
+   .list > p{
+      width: 90vw;
    }
 
    .list > section {
@@ -49,9 +58,9 @@ export default {
    }
 
    .selected > section{
-      border: 1px solid green;
       color: whitesmoke;
-      background-color: green;
+      border: 1px solid #316318;
+      background-color: #316318;
    }
 
    .selected i{
