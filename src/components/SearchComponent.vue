@@ -1,0 +1,42 @@
+<template>
+    <div class="search-bar">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <input class="search" type="search" placeholder="Search by recipe name" aria-label="Search" @keyup="searchRecipe($event)" v-model="typed">
+    </div>
+   
+</template>
+
+<script>
+
+export default ({
+   name: "SearchComponent",
+
+   props: {
+        recipesList: []
+    },
+    data() {
+        return {
+            // bt default 
+            typed: '',
+            searchResult: [],
+        }
+    },
+    methods:{
+        searchRecipe(){
+            
+            // searchResult is the recipesList filered
+            // for each recipe in the recipe list will get the recipe_name and put into lowercase and will do the same with the user typed. Then compare 
+            this.searchResult = this.recipesList.filter(
+                (recipe) => 
+                recipe.recipe_name.toLowerCase().includes(this.typed.toLowerCase()) || recipe.ingredients.toLowerCase().includes(this.typed.toLowerCase()
+                ) // case user search a igredient in the searchbar
+            );
+
+            // returnList is the name and searchResult is the new array with the comparation done
+            this.$emit("returnList", this.searchResult);
+            console.log(this.searchResult); // ok
+        }
+    }
+})
+</script>
+

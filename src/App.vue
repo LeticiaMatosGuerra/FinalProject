@@ -1,20 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <HomePage/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from './components/HomePage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
 
 <style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
