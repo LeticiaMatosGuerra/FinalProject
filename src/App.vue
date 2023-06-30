@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <LoginForm />
-<!--     <SignUpForm/> -->
+   <!--  <LoginForm /> -->
+  <RegisterForm/>  
+<!--   <UserPage/> -->
     <router-view/>
   </div>
 </template>
 
 <script>
-import LoginForm from './components/pages/LoginForm.vue';
-/* import SignUpForm from './components/pages/SignUpForm.vue'; */
+ /* import LoginForm from './components/pages/LoginForm.vue'; */
+ import RegisterForm from './components/pages/RegisterForm.vue';
+/*  import UserPage from './components/pages/UserPage.vue'; */
 
 export default {
   name: 'App',
   components: {
-    LoginForm,
-   /*  SignUpForm */
+  /*   LoginForm, */
+   RegisterForm
   }
 };
 </script>
