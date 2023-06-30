@@ -29,7 +29,7 @@ export default{
       align-items: center;
    }
    
-   a{
+   header a{
       display: flex;
       text-decoration: none;
       color: black;
@@ -37,7 +37,7 @@ export default{
 
    @media (min-width:300px) {
       header{
-         padding: 0px 2%;
+         padding: 2vh 3%;
       }
       
       .logo > img{
