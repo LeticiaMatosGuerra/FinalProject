@@ -1,18 +1,13 @@
-/* import LoginForm from '../components/pages/LoginForm.vue'; */
+import LoginForm from '../components/pages/LoginForm.vue';
 import RegisterForm from '../components/pages/RegisterForm.vue';
 import { createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
-    /* {
+    {
         path: "/login",
         name: "LoginForm",
         component: LoginForm
-    }, */
-  /*   {
-        path: "/",
-        name: "LoginForm",
-        component: LoginForm
-    }, */
+    },
     {
         path: "/register",
         name: "RegisterForm",
