@@ -1,4 +1,5 @@
 <template>
+  <img alt="Vue logo" src="./assets/Dish_dig_logo.png">
   <div id="app">
    <!--  <LoginForm /> -->
   <RegisterForm/>  
