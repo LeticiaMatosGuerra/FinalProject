@@ -72,6 +72,23 @@ export default {
       this.localResult = e;
     },
 
+    searchVal(e) {
+      this.searchValue = e;
+      this.pageNumber = 0;
+      this.getRecipeList();
+    },
+
+    pageSelector(selector){
+      if(selector == "prev" && this.pageNumber>0){
+        this.pageNumber = this.pageNumber - 8;
+        this.getRecipeList();
+      }
+      else if(selector == "next"){
+        this.pageNumber = this.pageNumber + 8;
+        this.getRecipeList();
+      }
+    },
+
     // check if theres any slots in the array
     checkSearch() {
       if (this.localResult.length > 0) {
