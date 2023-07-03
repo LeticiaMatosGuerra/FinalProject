@@ -1,11 +1,11 @@
 <template>
     <figure class="cardFigure">
 
-        <img :src="dishCard.img_src" class="dishCard" :alt="dishCard.recipe_name">  
+        <img :src="dishCard.thumbnail_url" class="dishCard" :alt="dishCard.name">  
 
         <figcaption class="cardFigcaption">
 
-            <h3 class="card-title">{{ dishCard.recipe_name }}
+            <h3 class="card-title">{{ dishCard.name }}
                 <i class="fa-solid fa-heart" title= "like" @click="clickHandler()" :style="{
                 // question if is active ? if this the color : else
                 color: active ? 'red' : 'dimgray'}"> 
@@ -14,11 +14,11 @@
 
             <article class="card-info">
                 <small title= "total time"> 
-                    <i class="fa-solid fa-stopwatch"></i> {{ dishCard.total_time }}
+                    <i class="fa-solid fa-stopwatch"></i> {{ dishCard.total_time_minutes }}
                 </small>
 
                 <small title= "serving"> 
-                    <i class="fa-solid fa-utensils"></i> {{ dishCard.servings }}
+                    <i class="fa-solid fa-utensils"></i> {{ dishCard.num_servings }}
                 </small>
 
             </article>
