@@ -1,13 +1,18 @@
 <template>
   <div class="HomePage">
     <!-- @ the name we gave in emit with the new array -->
-    <SearchComponent @returnList="this.searchRecipe" :recipesList="this.apiList"/>
+    <SearchComponent @searchValue="this.searchVal" @returnList="this.searchRecipe" :recipesList="this.apiList"/>
 
     <!-- show all the results from the api if the check theres no slot in localResult -->
     
     <CardGalleryComponent :dishList="apiList" v-if="!this.checkSearch()"/> 
     <!-- if theres result show it -->
     <CardGalleryComponent :dishList="this.localResult" v-else/>
+
+    <section class="pageBtn">
+      <button @click="pageSelector('prev')">Prev</button>
+      <button @click="pageSelector('next')">Next</button>
+    </section>
   </div>
 
 </template>
@@ -31,6 +36,8 @@ export default {
       apiList:[],
       dishesApi: "http://localhost/FinalProject/api/rest/api/V1/recipeApi.php",
       localResult: [], // we will put the array compared in this one.
+      searchValue: "&q=",
+      pageNumber: 0,
     }
   },
 
@@ -98,6 +105,12 @@ body {
     padding-bottom: 5vh;
   }
 
+  .search-bar > form{
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+  }
+
   .search{
     width: 35vh;
     border-radius: 5px;
@@ -116,6 +129,28 @@ body {
   .search:hover{
     background-color: lightgray;
     border: 1px solid dimgray;
+  }
+
+  .searchBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    transition: .5s;
+  }
+
+  .pageBtn{
+    display: flex;
+    column-gap: 10vw;
+  }
+
+  .pageBtn > button{
+    padding: 1vh;
+    color: whitesmoke;
+    background-color: #316318;
+    border: 3px solid #316318;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: .5s;
   }
 
   .dishGallery ul {
@@ -174,6 +209,22 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 10px;
+  }
+
+  .search-bar > form{
+    column-gap: 1vw;
+  }
+
+  .searchBtn:hover{
+    cursor: pointer;
+    scale: 1.1;
+  }
+
+  .pageBtn > button:hover{
+    background-color: transparent;
+    color: #316318;
+    cursor: pointer;
+    scale: 1.1;
   }
 }
 
