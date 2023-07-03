@@ -1,5 +1,5 @@
 <template>
-  <div class="HomePage">
+  <div v-if="dataIsReturn" class="HomePage">
     <!-- @ the name we gave in emit with the new array -->
     <SearchComponent @searchValue="this.searchVal" @returnList="this.searchRecipe" :recipesList="this.apiList"/>
 
@@ -14,7 +14,7 @@
       <button @click="pageSelector('next')">Next</button>
     </section>
   </div>
-
+  <div><h1>Loading...</h1></div>
 </template>
 
 
@@ -38,6 +38,7 @@ export default {
       localResult: [], // we will put the array compared in this one.
       searchValue: "&q=",
       pageNumber: 0,
+      dataIsReturn: false
     }
   },
 
@@ -62,6 +63,7 @@ export default {
         const recipeList = JSON.parse(result);
         this.apiList = recipeList.results;
         console.log(url);
+        this.dataIsReturn = true;
       } catch (error) {
         console.error(error);
       }
