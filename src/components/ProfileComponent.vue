@@ -13,3 +13,10 @@
         </figcaption>
     </figure>
 </template>
+
+<script>
+
+export default ({
+    name: "ProfileComponent",
+})
+</script>
