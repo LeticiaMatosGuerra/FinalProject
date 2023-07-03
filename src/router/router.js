@@ -1,8 +1,15 @@
+import HomePage from '../components/HomePage.vue';
 import LoginForm from '../components/pages/LoginForm.vue';
 import RegisterForm from '../components/pages/RegisterForm.vue';
+import DishPage from '../components/pages/DishPage.vue';
 import { createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
+    {
+        path: "/",
+        name: "HomePage",
+        component: HomePage
+    },
     {
         path: "/login",
         name: "LoginForm",
@@ -12,6 +19,11 @@ const routes = [
         path: "/register",
         name: "RegisterForm",
         component: RegisterForm
+    },
+    {
+        path: "/dishpage/:recipeId",
+        name: "DishPage",
+        component: DishPage,
     },
 ];
 
