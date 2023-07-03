@@ -1,5 +1,5 @@
 <template>
-   <main>
+   <main v-if="dataIsReturn">
       <figure class="mobile">
          <img :src="recipe.thumbnail_url" :alt="recipe.name">
       </figure>
@@ -73,6 +73,11 @@
          </ul>
       </section>
    </main>
+   <main v-else>
+      <section class="dishInfo">
+         <h1>Loading...</h1>
+      </section>
+   </main>
 </template>
 
 <script>
@@ -101,7 +106,8 @@ export default {
             nutrition: Object,
             sections: Array,
             instructions: Array
-         }
+         },
+         dataIsReturn: false
       }
    },
    methods:{
@@ -119,7 +125,8 @@ export default {
             const response = await fetch(url, options);
             const result = await response.text();
             const recipeInfo = JSON.parse(result);
-            this.convertRecipe(recipeInfo);  
+            this.convertRecipe(recipeInfo);
+            this.dataIsReturn = true;
          } catch (error) {
             console.error(error);
          }
@@ -141,7 +148,7 @@ export default {
       }
    },
    beforeMount(){
-      this.getRecipeInfo();
+      // this.getRecipeInfo();
    }
 }
 </script>
