@@ -14,7 +14,7 @@
       <button @click="pageSelector('next')">Next</button>
     </section>
   </div>
-  <div><h1>Loading...</h1></div>
+  <div v-else><h1>Loading...</h1></div>
 </template>
 
 

@@ -1,4 +1,4 @@
-import HomePage from '../components/HomePage.vue';
+import HomePage from '../components/pages/HomePage.vue';
 import LoginForm from '../components/pages/LoginForm.vue';
 import RegisterForm from '../components/pages/RegisterForm.vue';
 import DishPage from '../components/pages/DishPage.vue';
