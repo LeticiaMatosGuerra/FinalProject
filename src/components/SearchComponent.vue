@@ -1,9 +1,12 @@
 <template>
     <div class="search-bar">
-        <span class="fa-solid fa-magnifying-glass"></span>
-        <input class="search" type="search" placeholder="Search by recipe name" aria-label="Search" @keyup="searchRecipe($event)" v-model="typed">
+        <form @submit.prevent="searchValue" >
+            <input class="search" type="search" placeholder="Search by recipe name" aria-label="Search" v-model="typed">
+            <button type="submit" class="searchBtn">
+                <span class="fa-solid fa-magnifying-glass"></span>
+            </button>
+        </form>
     </div>
-   
 </template>
 
 <script>
