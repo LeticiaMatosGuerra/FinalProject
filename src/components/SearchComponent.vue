@@ -38,6 +38,12 @@ export default ({
             // returnList is the name and searchResult is the new array with the comparation done
             this.$emit("returnList", this.searchResult);
             console.log(this.searchResult); // ok
+        },
+        
+        searchValue(){
+            let searchValue = "&q=";
+            searchValue += this.typed.replace(" ", "%20");
+            this.$emit("searchValue", searchValue);
         }
     }
 })
