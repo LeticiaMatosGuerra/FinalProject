@@ -42,12 +42,28 @@ export default {
   },
 
   methods: {
-    async getApi() {
+    async getRecipeList() {
+      let url = `https://tasty.p.rapidapi.com/recipes/list?from=${this.pageNumber}&size=10`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '5797d19803mshd474a7ef8d65541p1b0cacjsn91d219ec7fd1',
+          'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+        }
+      };
+
+      if(this.searchValue != "&q="){
+        url += this.searchValue;
+      }
+
       try {
-        let response = await fetch(this.dishesApi);
-        this.apiList = await response.json();
-      } catch(error) {
-        console.log(error);
+        const response = await fetch(url, options);
+        const result = await response.text();
+        const recipeList = JSON.parse(result);
+        this.apiList = recipeList.results;
+        console.log(url);
+      } catch (error) {
+        console.error(error);
       }
     },
 
@@ -67,7 +83,7 @@ export default {
 
   },
     created() {
-      this.getApi();
+      // this.getRecipeList();
     }
 }
 </script>
