@@ -11,7 +11,8 @@
           <i class="fa-solid fa-plus"></i>
           Add Profile image
         </label>
-        <input type="file" name="userPicture" id="userPicture">
+        <!-- could not do with the type="file"-->
+        <input type="text" v-model.lazy="image" name="userPicture" id="userPicture"> 
       </div>
       <input type="submit" value="Sign up" class="btn btn-primary btn-lg">
     </form>
@@ -34,8 +35,9 @@ export default {
       name: '',
       email: '',
       password: '',
-      registrationUrl: 'http://localhost:80/login-process/src/api/register.php',
-      serverUrl: 'http://localhost:80/login-process/src/api/server.php',
+      image:'',
+      registrationUrl: 'http://localhost/src/api/register.php',
+      serverUrl: 'http://localhost/src/api/server.php',
       token: ''
     }
   },
@@ -52,6 +54,12 @@ export default {
         ).then((data) => {
           if (data.success) {
             this.token = data.sessionToken; 
+            // name we will call to get this object at TestingProfile
+            this.$emit('signup-successful', {
+              name: this.name,
+              email: this.email,
+              image: this.image
+            });
           }
         });
 

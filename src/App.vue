@@ -1,10 +1,16 @@
 <template>
-  <router-view></router-view>
+  <!-- <router-view></router-view> -->
+  <ProfileComponent :userData="userData"/>
 </template>
 
 <script>
+import ProfileComponent from './components/ProfileComponent.vue';
+
 export default {
   name: 'App',
+  components: {
+    ProfileComponent
+  }
 }
 </script>
 
