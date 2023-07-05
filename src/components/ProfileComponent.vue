@@ -1,61 +1,118 @@
 <template>
-    <figure>
-        <!-- Profile Pic -->
-        <img :src="userInfo.image" :alt="userInfo.name">
+    <section class="ProfileWrap">
+        <figure class="ProfileInfo">
+            <!-- Profile Pic -->
+            <img :src="userInfo.image" :alt="userInfo.name">
 
-        <figcaption>
-            <!-- Name -->
-            <h3> {{ userInfo.name }} </h3> 
-            
-            <!-- Email -->
-            <span> {{ userInfo.email }} </span>
+            <figcaption>
+                <!-- Name -->
+                <h3>{{ userInfo.name }}</h3>
 
-        </figcaption>
-    </figure>
+                <!-- Email -->
+                <h4>{{ userInfo.email }}</h4>
+            </figcaption>
+        </figure>
+
+        <button class="likedBtn">
+            Liked Recipes
+        </button>
+        <LikesComponent/>
+    </section>
 </template>
 
 <script>
 
+import LikesComponent from "./LikesComponent.vue" 
+
 export default {
-    name: "ProfileComponent",
-    data() {
-        return {
-            userInfo: {
-                name: "",
-                email: "",
-                image: "",
-            }
-        };
-    },
+  name: 'ProfileComponent',
+  components: {
+    LikesComponent
+  },
+  props: {
+    userData: {
+      type: Object,
+      // just for testing 
+      default: () => ({
+        image: "https://images.pexels.com/photos/14918399/pexels-photo-14918399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        name: "Letícia",
+        email:  "test@gmail.com"
+      })
+    }
+  },
+  data() {
+    return {
+      userInfo: {
+        image: this.userData.image ,
+        name: this.userData.name ,
+        email: this.userData.email
+      }
+    };
+  }
+};
+</script>
 
-    methods: {
-        getUserInfo() {
-            // new http request
-            const x = new XMLHttpRequest();
-            // open the new http request with the method get and pass as async (true)
-            x.open('GET', 'http://localhost/FinalProject/api/server.php', true);
-            // onreadysatechange (event) is gonna be called every time theres a change in the request status
-            x.onreadystatechange = () => {
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', sans-serif;
+}
 
-                // 4  is done and 200 is OK
-                if (x.readyState === 4 && x.status === 200) { 
-                    // transform the response in text format
-                    const response = JSON.parse(x.responseText);
-                    
-                    // get the resonse of the request
-                    this.userInfo.name = response.session.username;
-                    this.userInfo.email = response.session.email;
-                    this.userInfo.image = response.session.image;
+@media (min-width: 300px) {
 
-                }
-            };
-            x.send();
-        }
-    },
-
-    mounted() {
-        this.getUserInfo();
+    .ProfileInfo{
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 5vh;
     }
 
+    .ProfileInfo,
+    .ProfileInfo figcaption{
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+    }
+
+
+    .ProfileInfo img {
+        width: 20vh;
+        height: 20vh;
+        border-radius: 50%;
+    }
+
+    .likedBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 15vh;
+        background-color: #4a7534;
+        border-radius: 10px;
+        color: whitesmoke;
+        font-weight: 600;
+        padding: 1vh;
+        border: 1px solid transparent;
+    }
+   
 }
-</script>
+
+@media (min-width: 600px){
+    .ProfileWrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .ProfileInfo{
+        display: flex;
+        flex-direction: row;
+        column-gap: 5vh;
+    }
+
+    .likedBtn{
+        width: 20vh;
+    }
+}
+</style>
