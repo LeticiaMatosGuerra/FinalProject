@@ -3,10 +3,14 @@
       <a href="./" class="logo">
          <img src="../assets/Dish_dig_logo.png" alt="Dish Dig Logo">
       </a>
-      <a href="./" class="profile">
-         <p>Hello, {{user.userName}}</p>
-         <img :src="user.avatar" alt="Profile Pic">
-      </a>
+      <router-link :to="{ 
+         name:'ProfilePage'
+      }">
+         <a href="./" class="profile">
+            <p>Hello, {{user.userName}}</p>
+            <img :src="user.avatar" alt="Profile Pic">
+         </a>
+      </router-link>
    </header>
 </template>
 

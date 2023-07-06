@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       userInfo: {
-        image: this.userData.image ,
-        name: this.userData.name ,
+        image: this.userData.avatar ,
+        name: this.userData.userName ,
         email: this.userData.email
       }
     };

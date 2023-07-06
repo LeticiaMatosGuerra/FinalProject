@@ -148,7 +148,7 @@ export default {
       }
    },
    beforeMount(){
-      // this.getRecipeInfo();
+      this.getRecipeInfo();
    }
 }
 </script>
