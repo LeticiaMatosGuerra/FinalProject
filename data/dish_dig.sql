@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 08:25 PM
+-- Generation Time: Jul 06, 2023 at 08:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `bookmarks`
 --
+
 DROP DATABASE IF EXISTS dish_dig;
 CREATE DATABASE dish_dig;
 USE dish_dig;
@@ -35,6 +36,14 @@ CREATE TABLE `bookmarks` (
   `userId` int(11) NOT NULL,
   `recipeId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookmarks`
+--
+
+INSERT INTO `bookmarks` (`bookmarkId`, `userId`, `recipeId`) VALUES
+(1, 1, 4704),
+(2, 1, 1353);
 
 -- --------------------------------------------------------
 
@@ -50,7 +59,13 @@ CREATE TABLE `users` (
   `avatar` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userId`, `userName`, `email`, `password`, `avatar`) VALUES
+(1, 'jacques', 'ehrardt38@gmail.com', '1234', 'https://pbs.twimg.com/media/Dv__zsiWkAYZst_.jpg');
+
 --
 -- Indexes for dumped tables
 --
@@ -61,7 +76,6 @@ CREATE TABLE `users` (
 ALTER TABLE `bookmarks`
   ADD PRIMARY KEY (`bookmarkId`),
   ADD KEY `userId` (`userId`);
-
 
 --
 -- Indexes for table `users`
@@ -77,14 +91,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `bookmarkId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bookmarkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
-
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
