@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2023 at 04:28 AM
+-- Generation Time: Jun 27, 2023 at 08:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,10 +28,26 @@ SET time_zone = "+00:00";
 --
 DROP DATABASE IF EXISTS dish_dig;
 CREATE DATABASE dish_dig;
+USE dish_dig;
+
 CREATE TABLE `bookmarks` (
   `bookmarkId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `recipeId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userId` int(11) NOT NULL,
+  `userName` varchar(50) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `avatar` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,6 +75,7 @@ ALTER TABLE `bookmarks`
   ADD PRIMARY KEY (`bookmarkId`),
   ADD KEY `userId` (`userId`);
 
+
 --
 -- Indexes for table `users`
 --
@@ -76,6 +93,7 @@ ALTER TABLE `bookmarks`
   MODIFY `bookmarkId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
