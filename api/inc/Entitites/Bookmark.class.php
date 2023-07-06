@@ -4,13 +4,8 @@ class Bookmark {
 
     private int $bookmarkId;
     private int $recipeId;
-   
-
     private int $userId;
-    private string $userName;
-    private string $email;
-    private string $password;
-    private string $userPicture;
+    
 
     public function getbookmarkId() {
         return $this->bookmarkId;
@@ -27,4 +22,14 @@ class Bookmark {
     public function setrecipeId($recipeId) {
         $this->recipeId = $recipeId;
     }
+
+    
+    public function getuserId() {
+        return $this->userId;
+    }
+
+    public function setuserId($userId) {
+        $this->userId = $userId;
+    }
+
 }
