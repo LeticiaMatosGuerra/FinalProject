@@ -8458,14 +8458,21 @@ body {
   .search-bar > form{
     display: flex;
     align-items: center;
-    column-gap: 2vw;
+    border: 1px solid gainsboro;
+    padding: 1vh;
+    border-radius: 10px;
   }
 
   .search{
     width: 35vh;
     border-radius: 5px;
-    border: 1px solid lightgray;
+    border: unset;
     padding: 5px;
+  }
+
+  .search:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
   }
 
   .fa-magnifying-glass{
@@ -8476,10 +8483,6 @@ body {
     text-align: center;
   }
 
-  .search:hover{
-    background-color: lightgray;
-    border: 1px solid dimgray;
-  }
 
   .searchBtn{
     background-color: transparent;
@@ -8504,12 +8507,15 @@ body {
   }
 
   .dishGallery ul {
-    width: 90%;
-    padding-left: 5vh;
     list-style: none;
     display: flex;
     flex-direction: column;
     row-gap: 5vh;
+  }
+
+  .dishGallery a {
+    color: dimgrey;
+    text-decoration: none;
   }
 
   .cardFigure{
@@ -8552,13 +8558,21 @@ body {
     align-items: center;
   }
   .dishGallery ul {
-    width: 90%; 
-    padding-right: 5vh;
+    width: 90%;
+    justify-content: center;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 10px;
+    column-gap: 20px;
+  }
+
+  .dishGallery li{
+    height: 50%;
+  }
+
+  .cardFigure:hover {
+    transform: scale(1.1);
   }
 
   .search-bar > form{
@@ -8576,39 +8590,15 @@ body {
     cursor: pointer;
     scale: 1.1;
   }
+
+  .cardFigcaption{
+    height: 10vh;
+  }
 }
 
-
-/* figcaption {
-  border: 1px solid ghostwhite;
-  box-shadow: 2px 2px 2px  gainsboro;
-  padding: 2vh;
-} */
-
-
-
-/* .cardImg {
-  display: flex;
-  justify-content: center;
-  column-gap: 2vh;
-
-}
-
-.dishCard {
-  background-size: cover;
-  background-position: center;
-}
-
-.fa-heart {
-  padding: 8px;
-  font-size: 22px;
-  cursor: pointer;
-} */
-
-
-
-img {
+ .cardFigure img {
   width: 100%;
+  height: 40vh;
 }
 
 .dishGallery {
@@ -8616,5 +8606,9 @@ img {
   flex-direction: column;
   align-items: center;
   row-gap: 4vh;
+}
+
+.pageBtn{
+  margin-top: 5vh;
 }
 </style>

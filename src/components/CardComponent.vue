@@ -46,6 +46,11 @@ export default ({
         clickHandler() {
             // if clicked turn into the opposite 
             this.active = !this.active;
+
+            // if active emit and event
+            if (this.active){
+                this.$emit('cardClicked', this.dishCard);
+            }
         },
     }
 
