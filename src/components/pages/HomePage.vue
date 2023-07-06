@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import VueCookies from 'vue-cookies';
+
 import HeaderComponent from '../HeaderComponent.vue';
 import HomeComponent from '../HomeComponent.vue';
 import FooterComponent from '../FooterComponent.vue';
@@ -18,10 +20,13 @@ export default {
    },
    data(){
       return{
-         user: {
-            name: "John Smith",
-            pic: "https://pbs.twimg.com/media/Dv__zsiWkAYZst_.jpg"
-         }
+         user: {}
+      }
+   },
+   created(){
+      if(VueCookies.isKey("session")){
+         this.user = VueCookies.get("session").user;
+         console.log(this.user);
       }
    }
 }

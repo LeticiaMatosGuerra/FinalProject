@@ -6,7 +6,7 @@ class User {
     private string $userName;
     private string $email;
     private string $password;
-    private string $userPicture;
+    private string $avatar;
 
     public function getUserId() {
         return $this->userId;
@@ -40,12 +40,12 @@ class User {
         $this->password = $password;
     }
 
-    public function getUserPicture() {
-        return $this->userPicture;
+    public function getAvatar() {
+        return $this->avatar;
     }
 
-    public function setUserPicture($userPicture) {
-        $this->userPicture = $userPicture;
+    public function setAvatar($avatar) {
+        $this->avatar = $avatar;
     }
 
     

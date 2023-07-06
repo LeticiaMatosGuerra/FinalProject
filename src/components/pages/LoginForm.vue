@@ -1,9 +1,5 @@
 <template>
-  <section v-if="this.logged">
-    <h1>Welcome to Dig Dash</h1>
-    <button @click="logout" type="submit" class="btn btn-warning">Log out</button>
-</section>
-<section v-else>
+<section>
   <form @submit.prevent="login">
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -24,52 +20,59 @@ import VueCookies from 'vue-cookies'
 export default {
   name: 'LoginForm',
   data() {
-            return {
-                logged: false,
-                username: "",
-                password: "",
-                loginUrl: "http://localhost:80/login-process/src/api/login.php",
-                serverUrl: "http://localhost:80/login-process/src/api/server.php",
-                token: ""
-            }
-        },
-        methods: {
-            async login() {
-                try {
-                    await fetch(this.loginUrl, {
-                        method: "POST",
-                        body: JSON.stringify({
-                            username: this.username,
-                            password: this.password
-                        })
-                    }).then((response) => response.json()
-                    ).then((data) => {
-                        if (data.success) {
-                            this.token = data.sessionToken; 
-                        }
-                    });
-
-                } catch (error) {
-                    console.log(error);
-                }
-                VueCookies.set("session", this.token, "30d");
-                this.logged = true;
-                console.log(VueCookies.get("session"));
-            },
-            logout() {
-                if (VueCookies.isKey("session")) {
-                    VueCookies.remove("session");
-                    this.logged = false;
-                }
-            }
-        },
-        created() {
-            if(VueCookies.isKey("session")) {
-                this.logged = true;
-            }
-        }
+    return {
+      logged: false,
+      email: "",
+      password: "",
+      loginUrl: "http://localhost/06_CMS_Wordpress_Vue_Angular/final_project/FinalProject/api/login.php",
+      serverUrl: "http://localhost/06_CMS_Wordpress_Vue_Angular/final_project/FinalProject/api/server.php",
+      token: "",
+      userLogged: {},
     }
+  },
+  methods: {
+      async login() {
+        console.log(this.email);
+        console.log(this.password);
 
+          try {
+              await fetch(this.loginUrl, {
+                  method: "POST",
+                  body: JSON.stringify({
+                      email: this.email,
+                      password: this.password
+                  })
+              }).then((response) => response.json()
+              ).then((data) => {
+                  if (data.success) {
+                      this.token = data.sessionToken;
+                      this.userLogged = data.user; 
+                  }
+              });
+          } catch (error) {
+              console.log(error);
+          }
+          if(this.token){
+            VueCookies.set("session", {"token": this.token, "user": this.userLogged}, "60d");
+            this.logged = true;
+            console.log(VueCookies.get("session"));
+            window.location.replace("/")
+          }
+          
+      },
+      logout() {
+          if (VueCookies.isKey("session")) {
+              VueCookies.remove("session");
+              this.logged = false;
+          }
+      }
+  },
+  created() {
+      if(VueCookies.isKey("session")) {
+          this.logged = true;
+      }
+  }
+}
 </script>
 
 <style>
