@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="formSection">
   <form @submit.prevent="login">
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -12,13 +12,19 @@
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </section>
+  <FooterComponent/>
 </template>
 
 <script>
 import VueCookies from 'vue-cookies'
 
+import FooterComponent from '../FooterComponent.vue'
+
 export default {
   name: 'LoginForm',
+  components:{
+    FooterComponent
+  },
   data() {
     return {
       logged: false,
@@ -76,6 +82,19 @@ export default {
 </script>
 
 <style>
+
+.formSection{
+  height: 73vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formSection > form{
+  width: 50%;
+}
+
 .login-form {
   max-width: 300px;
   margin: 0 auto;
